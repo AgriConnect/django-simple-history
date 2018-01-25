@@ -123,7 +123,7 @@ class HistoricalRecords(object):
             except NameError:  # Django < 1.7
                 models_module = get_app(model._meta.app_label).__name__
             else:
-                models_module = app.name
+                models_module = '%s.models' % app.name
             attrs['__module__'] = models_module
 
         fields = self.copy_fields(model)
